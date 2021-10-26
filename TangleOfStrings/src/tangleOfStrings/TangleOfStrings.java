@@ -6,11 +6,12 @@ public class TangleOfStrings {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		//calls method on start
 		System.out.println("(Tangle of Strings)");
 		myPassWord();
 	}
 	
-	
+	//method responsible for asking inputs via scanner and calling methods based off input
 	public static void picker(Scanner input) {
 		input.useDelimiter("\n");
 		printline("string: ");
@@ -57,6 +58,7 @@ public class TangleOfStrings {
 			myPassWord();
 		}
 	}
+	//asks for password (me)
 	public static void myPassWord() {
 		printline("please enter your password:");
 		Scanner input = new Scanner(System.in);
