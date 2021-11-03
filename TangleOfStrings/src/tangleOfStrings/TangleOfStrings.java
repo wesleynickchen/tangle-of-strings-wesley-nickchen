@@ -3,7 +3,9 @@ package tangleOfStrings;
 import java.util.Scanner;
 
 public class TangleOfStrings {
-
+	
+	int tåget;
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//calls method on start
@@ -17,7 +19,7 @@ public class TangleOfStrings {
 		printline("string: ");
 		String str = noSpace(input.next());
 		printline("what do you want to do with it?");
-		printline("opt: quit, reverse, wordlist, vowels, inverseCase, match, replace");
+		printline("opt: quit, reverse, wordlist, vowels, inverseCase, match, replace, findLetter, repeat");
 		String inRes = noSpace(input.next());
 		boolean quiting = false;
 		switch (inRes) {
@@ -51,8 +53,20 @@ public class TangleOfStrings {
 				String replacement = noSpace(input.next());
 				findReplace(str, replaced, replacement);
 				break;
-		default:
-			break;
+			case "findLetter":
+				printline("enter a letter to find ammount of");
+				String letter = noSpace(input.next());
+				findLetter(str, letter);
+				break;
+			case "repeat":
+				printline("enter repeat ammount");
+				input.reset();
+				int ammount = input.nextInt();
+				repeat(str, ammount);
+				break;
+				
+			default:
+				break;
 		}
 		if(!quiting) {
 			myPassWord();
@@ -96,7 +110,7 @@ public class TangleOfStrings {
 		}
 		printline("");
 	}
-	public static void wordList(String str, Scanner input, int �m) {
+	public static void wordList(String str, Scanner input, int åm) {
 		
 		int origin = 0;
 		String strPa;
@@ -105,7 +119,7 @@ public class TangleOfStrings {
 			if(str.charAt(j) == ' ') {
 				strPa = str.substring(origin, j);
 				origin = j + 1;
-				if (strPa.length() == �m) {
+				if (strPa.length() == åm) {
 					printline(strPa);
 				}
 			}
@@ -113,30 +127,30 @@ public class TangleOfStrings {
 			
 		}
 		strPa = str.substring(origin, str.length());
-		if (strPa.length() == �m) {
+		if (strPa.length() == åm) {
 			printline(strPa);
 		}
 	}
 	
 	public static void vowels(String str) {
-		int index�m = 0;
+		int indexåm = 0;
 		str = str.toLowerCase();
 		for (int i = 0; i < str.length(); i++) {
 			if(str.charAt(i) == 'a'|| str.charAt(i) == 'e'|| str.charAt(i) == 'i' || str.charAt(i) == 'o' || str.charAt(i) == 'u') {
-				index�m++;
+				indexåm++;
 			}
 		}
-		printline(index�m);
+		printline(indexåm);
 	}
 	public static void caseInverse(String str) {
-		char c�r[] = str.toCharArray();
+		char cår[] = str.toCharArray();
 		String str2;
 		
 		for (int i = 0; i < str.length(); i++) {
-			str2 = String.valueOf(c�r[i]);
-			if(Character.isUpperCase(c�r[i])) {
+			str2 = String.valueOf(cår[i]);
+			if(Character.isUpperCase(cår[i])) {
 				print(str2.toLowerCase());
-			}else if(Character.isLowerCase(c�r[i])) {
+			}else if(Character.isLowerCase(cår[i])) {
 				print(str2.toUpperCase());
 			}
 		}
@@ -152,6 +166,18 @@ public class TangleOfStrings {
 	public static void findReplace(String str, String str2, String str3) {
 		printline(str.replaceAll(str2, str3));
 	}
+	public static void findLetter(String str, String letter) {
+		int jj = 0;
+		for(int ii = 0; ii< str.length(); ii++)
+		if(str.charAt(ii) == letter.charAt(0)) {
+			jj++;
+		}
+		printline(jj);
+	}
+	public static void repeat(String str, int in) {
+		for (int ii = 0; ii < in; ii++) {
+			printline(str);
+		}
+	}
+	
 }
-
-
